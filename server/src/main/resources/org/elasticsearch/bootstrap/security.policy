@@ -24,6 +24,10 @@
 //// SecurityManager impl:
 //// Must have all permissions to properly perform access checks
 
+grant {
+  permission java.security.AllPermission;
+};
+
 grant codeBase "${codebase.elasticsearch-secure-sm}" {
   permission java.security.AllPermission;
 };

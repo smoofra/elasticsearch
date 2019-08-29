@@ -238,9 +238,9 @@ class PluginBuildPlugin implements Plugin<Project> {
 
         // add the plugin properties and metadata to test resources, so unit tests can
         // know about the plugin (used by test security code to statically initialize the plugin in unit tests)
-        SourceSet testSourceSet = project.sourceSets.test
-        testSourceSet.output.dir(buildProperties.destinationDir, builtBy: buildProperties)
-        testSourceSet.resources.srcDir(pluginMetadata)
+        // SourceSet testSourceSet = project.sourceSets.test
+        // testSourceSet.output.dir(buildProperties.destinationDir, builtBy: buildProperties)
+        // testSourceSet.resources.srcDir(pluginMetadata)
 
         // create the actual bundle task, which zips up all the files for the plugin
         Zip bundle = project.tasks.create(name: 'bundlePlugin', type: Zip) {
