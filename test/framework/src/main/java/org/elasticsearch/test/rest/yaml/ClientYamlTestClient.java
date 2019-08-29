@@ -181,10 +181,16 @@ public class ClientYamlTestClient implements Closeable {
             requestPath = finalPath.toString();
         }
 
-        logger.debug("calling api [{}]", apiName);
+        logger.info("calling api {} [{}] at path {}", requestMethod, apiName, requestPath);
+        if (entity != null) { 
+            System.out.print("eee<<<<<<<");
+            entity.writeTo(System.out);
+            System.out.println(">>>>>>");
+        }
         Request request = new Request(requestMethod, requestPath);
         for (Map.Entry<String, String> param : queryStringParams.entrySet()) {
             request.addParameter(param.getKey(), param.getValue());
+            logger.info("with parameter {} {}", param.getKey(), param.getValue());
         }
         request.setEntity(entity);
         setOptions(request, headers);
